@@ -1,0 +1,373 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Anilibria</title>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+        @import url('https://fonts.googleapis.com/css2?family=PT+Sans&display=swap');
+
+        body {
+            background-color: rgb(18, 18, 18);
+        }
+
+        .head-form {
+            display: flex;
+            margin-top: 20px;
+            justify-content: space-between;
+            margin-left: 80px;
+        }
+
+        .buttons {
+            color: white;
+            align-items: center;
+            display: flex;
+            padding: 0px 20px;
+            font-family: 'Roboto', sans-serif;
+            font-weight: 400;
+        }
+
+        button {
+            background-color: rgb(18, 18, 18);
+            border: none;
+            transition: background-color 0.5s ease;
+            cursor: pointer;
+            padding: 5px 20px;
+            border-radius: 5px;
+        }
+
+        button:hover {
+            background-color: #383838;
+        }
+        
+        svg {
+            margin-right: 5%;
+            display: inline-block;
+        }
+
+        input {
+            width: 350px;
+            height: 30px;
+            background-color: #383838;
+            border: none;
+            box-shadow: 0px 0px 8px rgba(0, 0, 0, 0.8);
+            border-radius: 3px;
+            text-decoration: none;
+        }
+
+        input:focus {
+            outline: none;
+            caret-color: #ffff;
+        }
+
+        .svgs {
+            color: #ffff;
+            align-items: center;
+            padding: 0;
+            margin-left: 1%;
+            display: flex;
+            padding: 10px 10px;
+            border-radius: 50px;
+        }
+
+        .carousel {
+            display: flex;
+            align-items: center;
+            margin-top: 15px;
+        }
+
+        .carousel-images {
+            display: flex;
+            flex-grow: 1;
+        }
+
+        .carousel-item {
+            opacity: 0.5;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .carousel-item.active {
+            opacity: 1;
+        }
+
+        .carousel-text-item {
+            display: none;
+        }
+
+        .carousel-text-item.active {
+            display: block;
+        }
+
+
+        img {
+            width: 193px;
+            height: 271px;
+            cursor: pointer;
+        }
+
+        .carousel-button.prev {
+            color: #ffff;
+            margin-left: 20px;
+        }
+
+        .carousel-button.next {
+            color: #ffff;
+            margin-right: 20px;
+        }
+
+        .carousel-text {
+            color: #ffff;
+            margin-left: 80px;
+            font-family: "PT Sans", sans-serif;
+        }
+
+        .name-rus {
+            font-size: 58px;
+            font-weight: 600;
+        }
+
+        .name-jap {
+            font-size: 20px;
+        }
+
+        .genre {
+            font-size: 16px;
+        }
+
+        .series {
+            padding: 10px;
+            background-color: red;
+            border-radius: 5px;
+            display: inline-block;
+            font-weight: bold;
+        }
+
+        .name-jap, .genre, .series {
+            margin-bottom: 5px;
+        }
+
+        .description {
+            padding-right: 80px;
+        }
+
+        .description, .series {
+            margin-top: 6px;
+        }
+
+        .buttons-bottom {
+            color: #ffff;
+            background-color: rgb(45, 45, 45);
+            font-family: "Roboto", sans-serif;
+            font-weight: 500;
+            margin-right: 10px;
+            border: none;
+            cursor: pointer;
+            padding: 5px 20px;
+            border-radius: 5px;
+            margin-top: 10px;
+        }
+
+        .buttons-bottom:hover {
+            background-color: rgb(100, 100, 100);
+            transition: background-color 0.5s ease;
+        }
+
+        .bottom {
+            display: flex;
+        }
+    </style>
+</head>
+<body>
+    <div class="head-form">
+        <button class="buttons">РЕЛИЗЫ</button>
+        <button class="buttons">
+            <svg width="26" height="26" viewBox="0 0 24 24" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+                <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+                    <g id="Dribbble-Light-Preview" transform="translate(-220.000000, -1199.000000)" fill="white">
+                        <g id="icons" transform="translate(56.000000, 160.000000)">
+                            <path d="M184,1045.0005 L184,1057.0005 C184,1058.1055 183.105,1059.0005 182,1059.0005 L166,1059.0005 C164.895,1059.0005 164,1058.1055 164,1057.0005 L164,1041.0005 C164,1039.8955 164.895,1039.0005 166,1039.0005 L172,1039.0005 C173.105,1039.0005 174,1039.8955 174,1041.0005 L174,1042.0005 C174,1042.5525 174.448,1043.0005 175,1043.0005 L182,1043.0005 C183.105,1043.0005 184,1043.8955 184,1045.0005" id="folder_fill-[#1777]">
+            </path>
+            </svg>КАТАЛОГ</button>
+        <button class="buttons">
+            <svg version="1.0" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+            width="26" height="26" viewBox="0 0 64 64" enable-background="new 0 0 64 64" xml:space="preserve">
+                <path fill="white" d="M62.799,23.737c-0.47-1.399-1.681-2.419-3.139-2.642l-16.969-2.593L35.069,2.265
+	                C34.419,0.881,33.03,0,31.504,0c-1.527,0-2.915,0.881-3.565,2.265l-7.623,16.238L3.347,21.096c-1.458,0.223-2.669,1.242-3.138,2.642
+	                c-0.469,1.4-0.115,2.942,0.916,4l12.392,12.707l-2.935,17.977c-0.242,1.488,0.389,2.984,1.62,3.854
+	                c1.23,0.87,2.854,0.958,4.177,0.228l15.126-8.365l15.126,8.365c0.597,0.33,1.254,0.492,1.908,0.492c0.796,0,1.592-0.242,2.269-0.72
+	                c1.231-0.869,1.861-2.365,1.619-3.854l-2.935-17.977l12.393-12.707C62.914,26.68,63.268,25.138,62.799,23.737z"/>
+            </svg>
+        ИЗБРАННОЕ</button>
+        <div class="buttons">
+            <form action="" method="get">
+                <input type="search" placeholder="Поиск релиза...">
+            </form>
+        </div>
+        <div>
+            <button class="svgs">
+                <svg xmlns="http://www.w3.org/2000/svg" width="26" height="26" fill="white" class="bi bi-arrow-clockwise" viewBox="0 0 16 16">
+                    <path fill-rule="evenodd" d="M8 3a5 5 0 1 0 4.546 2.914.5.5 0 0 1 .908-.417A6 6 0 1 1 8 2v1z"/>
+                    <path d="M8 4.466V.534a.25.25 0 0 1 .41-.192l2.36 1.966c.12.1.12.284 0 .384L8.41 4.658A.25.25 0 0 1 8 4.466z"/>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <button class="svgs">
+                <svg width="26" height="26" viewBox="0 0 22 22" fill="white" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M9.00195 17H5.60636C4.34793 17 3.71872 17 3.58633 16.9023C3.4376 16.7925 3.40126 16.7277 3.38515 16.5436C3.37082 16.3797 3.75646 15.7486 4.52776 14.4866C5.32411 13.1835 6.00031 11.2862 6.00031 8.6C6.00031 7.11479 6.63245 5.69041 7.75766 4.6402C8.88288 3.59 10.409 3 12.0003 3C13.5916 3 15.1177 3.59 16.2429 4.6402C17.3682 5.69041 18.0003 7.11479 18.0003 8.6C18.0003 11.2862 18.6765 13.1835 19.4729 14.4866C20.2441 15.7486 20.6298 16.3797 20.6155 16.5436C20.5994 16.7277 20.563 16.7925 20.4143 16.9023C20.2819 17 19.6527 17 18.3943 17H15.0003M9.00195 17L9.00031 18C9.00031 19.6569 10.3435 21 12.0003 21C13.6572 21 15.0003 19.6569 15.0003 18V17M9.00195 17H15.0003" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <button class="svgs">
+                <svg width="26" height="26" fill="white" id="Layer_1" viewBox="0 0 32 32" xmlns="http://www.w3.org/2000/svg" data-name="Layer 1">
+                    <path d="m30.47 12.93-1.79-.24a.6.6 0 0 1 -.5-.43 13.235 13.235 0 0 0 -.92-2.23.574.574 0 0 1 .05-.65l.99-1.31c.29-.38.27-.72.05-.94l-1.73-1.72-1.75-1.76a.612.612 0 0 0 -.81-.05l-1.43 1.09a.59.59 0 0 1 -.66.05 13.235 13.235 0 0 0 -2.23-.92.6.6 0 0 1 -.43-.5l-.24-1.79a.615.615 0 0 0 -.61-.53h-4.92a.615.615 0 0 0 -.61.53l-.24 1.79a.6.6 0 0 1 -.43.5 13.235 13.235 0 0 0 -2.23.92.574.574 0 0 1 -.65-.05l-1.31-.99c-.38-.29-.72-.27-.94-.05l-3.48 3.48a.612.612 0 0 0 -.05.81l1.09 1.43a.59.59 0 0 1 .05.66 13.235 13.235 0 0 0 -.92 2.23.6.6 0 0 1 -.5.43l-1.79.24a.615.615 0 0 0 -.53.61v4.92a.615.615 0 0 0 .53.61l1.79.24a.6.6 0 0 1 .5.43 13.235 13.235 0 0 0 .92 2.23.574.574 0 0 1 -.05.65l-.99 1.31c-.29.38-.27.72-.05.94l3.48 3.48a.612.612 0 0 0 .81.05l1.43-1.09a.59.59 0 0 1 .66-.05 13.235 13.235 0 0 0 2.23.92.6.6 0 0 1 .43.5l.24 1.79a.615.615 0 0 0 .61.53h4.92a.615.615 0 0 0 .61-.53l.24-1.79a.6.6 0 0 1 .43-.5 13.235 13.235 0 0 0 2.23-.92.574.574 0 0 1 .65.05l1.31.99c.38.29.72.27.94.05l1.72-1.73 1.76-1.75a.612.612 0 0 0 .05-.81l-1.09-1.43a.59.59 0 0 1 -.05-.66 13.235 13.235 0 0 0 .92-2.23.6.6 0 0 1 .5-.43l1.79-.24a.615.615 0 0 0 .53-.61v-4.92a.615.615 0 0 0 -.53-.61zm-14.47 8.07a5 5 0 1 1 5-5 5 5 0 0 1 -5 5z" fill="white"></path>
+                </svg>
+            </button>
+        </div>
+        <div>
+            <button class="svgs" style="margin-right: 80px;">
+                <svg version="1.1" width="26" height="26" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" fill="white" viewBox="0 0 415.744 415.744" style="enable-background:new 0 0 415.744 415.744;" xml:space="preserve">
+                    <path d="M207.872,0c-53.76,0-97.28,43.52-97.28,97.28s43.52,97.28,97.28,97.28s97.28-43.52,97.28-97.28S261.632,0,207.872,0z"></path>
+                    <path d="M245.76,205.824h-75.776c-76.288,0-138.24,61.952-138.24,138.24v56.32c0,8.704,6.656,15.36,15.36,15.36H368.64 c8.704,0,15.36-6.656,15.36-15.36v-56.32C384,267.776,322.048,205.824,245.76,205.824z"></path>
+                </svg>
+            </button>
+        </div>
+    </div>
+    <div class="carousel">
+        <button class="carousel-button prev">←</button>
+        <div class="carousel-images">
+            <div class="carousel-item active">
+                <img src="static/solo-leveling.jpg" alt="Image 1">
+            </div>
+            <div class="carousel-item">
+                <img src="static/reincarnation.jpg" alt="Image 2">
+            </div>
+            <div class="carousel-item">
+                <img src="static/evangelion.jpg" alt="Image 3">
+            </div>
+            <div class="carousel-item">
+                <img src="static/frieren.jpg" alt="Image 4">
+            </div>
+            <div class="carousel-item">
+                <img src="static/magic-fight.jpg" alt="Image 5">
+            </div>
+            <div class="carousel-item">
+                <img src="static/benzopila.jpg" alt="Image 6">
+            </div>
+        </div>
+        <button class="carousel-button next">→</button>
+    </div>
+    <div class="carousel-text">
+        <div class="carousel-text-item active">
+            <div class="name-rus">Поднятие уровня в одиночку</div>
+            <div class="name-jap">Ore dake Level Up na Ken</div>
+            <div class="genre">Приключения | Фэнтези | Экшен</div>
+            <div class="series">Серия 12</div>
+            <div class="description">Появление проходов в подземельях с монстрами давно терроризирует человечество. Никто не знает, где и когда возникнут новые врата и чудища ринутся наверх. Даже армия не может справиться с нашествием монстров. Людям доступна лишь одна стратегия: засылка в только что открывшееся подземелье отряда особых охотников. Если они быстро уничтожат монстра, проход закроется, а угроза вторжения временно исчезнет.</div>
+            <div class="bottom">
+                <div class="buttons-bottom">СМОТРЕТЬ</div>
+                <div class="buttons-bottom">РЕЛИЗ</div>
+            </div>
+        </div>
+        <div class="carousel-text-item">
+            <div class="name-rus">Реинкарнация безработного</div>
+            <div class="name-jap">Mushoku Tensei</div>
+            <div class="genre">Драма | Приключения | Фэнтези | Этти</div>
+            <div class="series">Серия 24</div>
+            <div class="description">«В этом новом мире я возьмусь за голову!» Встречайте: девственник, затворник и безработный 34 лет от роду. В день похорон родителей его выгоняют из дома, а немногим позже он погибает под колёсами грузовика. Казалось бы, на этом сказочке конец… но нет! Он оказывается в теле младенца уже в другом, фэнтезийном мире. Отброс, чья жизни не стоила и ломаного гроша, перерождается как Рудеус Грейрат.</div>
+            <div class="bottom">
+                <div class="buttons-bottom">СМОТРЕТЬ</div>
+                <div class="buttons-bottom">РЕЛИЗ</div>
+            </div>
+        </div>
+        <div class="carousel-text-item">
+            <div class="name-rus">Евангелион</div>
+            <div class="name-jap">Neon Genesis Evangelion</div>
+            <div class="genre">Безумие | Драма | Меха | Психологическое | Фантастика | Экшен</div>
+            <div class="series">Серия 26</div>
+            <div class="description">Проходит пятнадцать лет после обрушения на Землю масштабной необъяснимой катастрофы. Гигантское количество людей погибло в ходе воцарившегося хаоса, а выжившие счастливчики даже подумать не могли, что страшное происшествие является лишь началом цепочки испытаний. В определенный момент планета подверглась атаке огромных существ, называемых Ангелами.</div>
+            <div class="bottom">
+                <div class="buttons-bottom">СМОТРЕТЬ</div>
+                <div class="buttons-bottom">РЕЛИЗ</div>
+            </div>
+        </div>
+        <div class="carousel-text-item">
+            <div class="name-rus">Провожающая в последний путь Фрирен</div>
+            <div class="name-jap">Sousou no Frieren</div>
+            <div class="genre">Драма | Приключения | Сёнэн | Фэнтези</div>
+            <div class="series">Серия 28</div>
+            <div class="description">Король демонов повержен. Миссия отряда поддержки героя наконец-то завершена, участники похода радостно расходятся по домам. Их щедро наградили, и теперь можно беззаботно доживать свой век рядом с близкими. Грустно только красотке Фрирен, ведь она эльф. Дар долголетия превращается в наказание. Девушка становится свидетелем старения и смерти всех своих друзей.</div>
+            <div class="bottom">
+                <div class="buttons-bottom">СМОТРЕТЬ</div>
+                <div class="buttons-bottom">РЕЛИЗ</div>
+            </div>
+        </div>
+        <div class="carousel-text-item">
+            <div class="name-rus">Магическая битва</div>
+            <div class="name-jap">Jujutsu Kaisen</div>
+            <div class="genre">Демоны | Сверхъестественное | Сёнэн | Ужасы | Фэнтези | Школа | Экшен</div>
+            <div class="series">Серия 24</div>
+            <div class="description">Юдзи Итадори — сильный юноша, который ведёт заурядную жизнь старшеклассника. Однажды, чтобы спасти друзей от нападения проклятий, он съедает палец Двуликого призрака, который становится частью его души. С этого момента он делит с ним своё тело. Под присмотром Сатору Годзё, одного из сильнейших магов, Итадори поступает в магический техникум, где учат сражаться с проклятиями.</div>
+            <div class="bottom">
+                <div class="buttons-bottom">СМОТРЕТЬ</div>
+                <div class="buttons-bottom">РЕЛИЗ</div>
+            </div>
+        </div>
+        <div class="carousel-text-item">
+            <div class="name-rus">Человек-бензопила</div>
+            <div class="name-jap">Chainsaw Man</div>
+            <div class="genre">Демоны | Приключения | Сверхъестественное | Сёнэн | Фэнтез | Экшен</div>
+            <div class="series">Серия 12</div>
+            <div class="description">Дэндзи приходится полностью изменить свою жизнь, чтобы отработать непомерные долги отца. Он становится подручным якудзы в нелегком деле уничтожения демонов. На второй план отошли не только сон и отдых, а и общение с любимой девушкой. Только дьявольский питомец-помощник Почита вносит немного разнообразия в череду кровавых будней.</div>
+            <div class="bottom">
+                <div class="buttons-bottom">СМОТРЕТЬ</div>
+                <div class="buttons-bottom">РЕЛИЗ</div>
+            </div>
+        </div>
+    </div>
+    <script>
+        var items = document.querySelectorAll('.carousel-item');
+        var texts = document.querySelectorAll('.carousel-text-item');
+        var prevButton = document.querySelector('.carousel-button.prev');
+        var nextButton = document.querySelector('.carousel-button.next');
+        var activeIndex = 0;
+
+        function updateCarousel() {
+            items.forEach(function(item, index) {
+                item.classList.remove('active');
+                if (index === activeIndex) {
+                    item.classList.add('active');
+                }
+            });
+
+            texts.forEach(function(text, index) {
+                text.classList.remove('active');
+                if (index === activeIndex) {
+                    text.classList.add('active');
+                }
+            });
+        }
+
+        items.forEach(function(item, index) {
+            item.addEventListener('click', function() {
+                activeIndex = index;
+                updateCarousel();
+            });
+        });
+
+        prevButton.addEventListener('click', function() {
+            activeIndex = (activeIndex - 1 + items.length) % items.length;
+            updateCarousel();
+        });
+
+        nextButton.addEventListener('click', function() {
+            activeIndex = (activeIndex + 1) % items.length;
+            updateCarousel();
+        });
+
+        updateCarousel();
+    </script>    
+</body>
+</html>
